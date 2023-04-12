@@ -1,6 +1,11 @@
 package com.serenitydojo.fruitmarket;
 
+import com.serenitydojo.Catalog;
+import com.serenitydojo.Fruit;
+import com.serenitydojo.FruitNotAvailable;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,22 +14,34 @@ public class CatalogTest {
     @Test
     public void shouldBeAbleToUpdateTheCurrentPriceOfAFruit() {
 // TODO: Uncomment this code and make it work
-        // Catalog catalog = new Catalog();
-        // catalog.setPriceOf(Apple, 4.00);
-        // assertThat(catalog.getPriceOf(Apple)).isEqualTo(4.00);
+        Catalog catalog = new Catalog();
+        catalog.setPriceof(Fruit.APPLE, 4.00);
+        double priceofFruit = catalog.getPriceof(Fruit.APPLE);
+
+        assertThat(priceofFruit).isEqualTo(4.00);
     }
 
     @Test
     public void shouldListAvailableFruitsAlphabetically() {
-// TODO: Uncomment this code and make it work
-        // Catalog catalog = Catalog.withItems(
-        //         new CatalogItem(Pear, 1),
-        //         new CatalogItem(Apple, 1),
-        //         new CatalogItem(Banana, 1)
-        // );
-        // List<CatalogItem> availableFruits = catalog.getAvailableFruits();
-        // assertThat(availableFruits.get(0).getFruit()).isEqualTo(Apple);
-        // assertThat(availableFruits.get(1).getFruit()).isEqualTo(Banana);
-        // assertThat(availableFruits.get(2).getFruit()).isEqualTo(Pear);
+
+        Catalog catalog = new Catalog();
+        catalog.setPriceof(Fruit.ORANGE, 5.50);
+        catalog.setPriceof(Fruit.BANANA, 6.00);
+        catalog.setPriceof(Fruit.PEAR, 4.50);
+
+        List<Fruit> availableFruits = catalog.getAllFruitsAlphabeticalOrder();
+        assertThat(availableFruits).containsExactly(Fruit.BANANA,Fruit.ORANGE,Fruit.PEAR);
+
+    }
+
+    @Test (expected = FruitNotAvailable.class)
+    public void shouldGiveThePriceofFruit(){
+
+        Catalog catalog = new Catalog();
+        catalog.setPriceof(Fruit.ORANGE, 5.50);
+        catalog.setPriceof(Fruit.BANANA, 6.00);
+        catalog.setPriceof(Fruit.PEAR, 4.50);
+
+        double priceofFruit = catalog.getPriceof(Fruit.STRWBERRY);
     }
 }

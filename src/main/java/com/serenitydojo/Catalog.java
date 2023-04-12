@@ -1,20 +1,31 @@
 package com.serenitydojo;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Catalog {
-    public void setPriceOf(Fruit fruit, double price) {
-        throw new RuntimeException("TODO, create a map to keep track of fruits and their prices");
-        // fruitToPrice.put(fruit.name(), price);
+
+    Map<Fruit, Double> fruitToPrice = new HashMap<>();
+
+    public void setPriceof(Fruit fruit, double price) {
+
+        fruitToPrice.put(fruit, price);
+
     }
 
-    public static Catalog withItems(CatalogItem... catalogItems) {
-        throw new RuntimeException("TODO, create catalog and add items to the list of available fruits");
-        // Catalog catalog = new Catalog();
-        // for (CatalogItem catalogItem : catalogItems) {
-        //     catalog.availableFruits.add(catalogItem);
-        // }
-        // return catalog
+    public double getPriceof(Fruit fruit) {
+        if (!fruitToPrice.containsKey(fruit)) {
+            throw new FruitNotAvailable("Sorry the " + fruit + " not available in the catalog ");
+        }
+        return fruitToPrice.get(fruit);
+
+    }
+
+    public List<Fruit> getAllFruitsAlphabeticalOrder() {
+        return fruitToPrice.keySet()
+                .stream()
+                .sorted(Comparator.comparing(Fruit::name))
+                .collect(Collectors.toList());
     }
 
 }

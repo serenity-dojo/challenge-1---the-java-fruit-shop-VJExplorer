@@ -6,7 +6,6 @@ import java.util.List;
 public class Cart {
 
     private final Catalog catalog;
-    private CartItem item;
     private final List<CartItem> items = new ArrayList<>();
 
     public Cart(Catalog catalog) {
@@ -22,7 +21,7 @@ public class Cart {
 
     }
 
-    public double getTotalUnits() {
+    public double getTotalQuantity() {
         return items.stream()
                 .mapToDouble(item -> item.getQuantity())
                 .sum();
@@ -41,9 +40,9 @@ public class Cart {
     private double priceOfFruit(CartItem item) {
         double totalPrice = 0;
         if (item.getQuantity() >= 5) {
-            totalPrice = item.getQuantity() * catalog.getPriceOf(item.getFruit()) * 0.9;
+            totalPrice = item.getQuantity() * catalog.getPriceof(item.getFruit()) * 0.9;
         } else {
-            totalPrice = item.getQuantity() * catalog.getPriceOf(item.getFruit());
+            totalPrice = item.getQuantity() * catalog.getPriceof(item.getFruit());
         }
         return totalPrice;
     }

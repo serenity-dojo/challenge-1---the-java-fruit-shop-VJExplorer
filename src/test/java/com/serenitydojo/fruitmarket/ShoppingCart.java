@@ -1,6 +1,9 @@
 package com.serenitydojo.fruitmarket;
 
-import com.serenitydojo.*;
+import com.serenitydojo.Cart;
+import com.serenitydojo.CartItem;
+import com.serenitydojo.Catalog;
+import com.serenitydojo.Fruit;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,10 +14,10 @@ public class ShoppingCart {
     @Before
     //setup catalog
     public void setCatalog(){
-        catalog.setPriceOf(Fruit.APPLE,6.50);
-        catalog.setPriceOf(Fruit.ORANGE, 5.50);
-        catalog.setPriceOf(Fruit.BANANA, 6.00);
-        catalog.setPriceOf(Fruit.PEAR, 4.50);
+        catalog.setPriceof(Fruit.APPLE,6.50);
+        catalog.setPriceof(Fruit.ORANGE, 5.50);
+        catalog.setPriceof(Fruit.BANANA, 6.00);
+        catalog.setPriceof(Fruit.PEAR, 4.50);
     }
 
 
@@ -33,7 +36,7 @@ public class ShoppingCart {
         cart.addtoCart(new CartItem(Fruit.BANANA,2.5));
         cart.addtoCart(new CartItem(Fruit.PEAR,6));
 
-        double numberofUnits = cart.getTotalUnits();
+        double numberofUnits = cart.getTotalQuantity();
 
         assertThat(numberofUnits).isEqualTo(9.5);
     }

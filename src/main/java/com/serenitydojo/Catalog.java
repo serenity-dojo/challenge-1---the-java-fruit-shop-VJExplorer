@@ -1,22 +1,19 @@
 package com.serenitydojo;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Catalog {
 
     Map<Fruit, Double> fruitToPrice = new HashMap<>();
 
-    public void setPriceOf(Fruit fruit, double price) {
+    public void setPriceof(Fruit fruit, double price) {
 
         fruitToPrice.put(fruit, price);
 
     }
 
-    public double getPriceOf(Fruit fruit) {
+    public double getPriceof(Fruit fruit) {
         if (!fruitToPrice.containsKey(fruit)) {
             throw new FruitNotAvailable("Sorry the " + fruit + " not available in the catalog ");
         }

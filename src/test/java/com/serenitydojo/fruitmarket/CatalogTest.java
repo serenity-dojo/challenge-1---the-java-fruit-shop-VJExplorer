@@ -15,8 +15,8 @@ public class CatalogTest {
     public void shouldBeAbleToUpdateTheCurrentPriceOfAFruit() {
 // TODO: Uncomment this code and make it work
         Catalog catalog = new Catalog();
-        catalog.setPriceOf(Fruit.APPLE, 4.00);
-        double priceofFruit = catalog.getPriceOf(Fruit.APPLE);
+        catalog.setPriceof(Fruit.APPLE, 4.00);
+        double priceofFruit = catalog.getPriceof(Fruit.APPLE);
 
         assertThat(priceofFruit).isEqualTo(4.00);
     }
@@ -25,9 +25,9 @@ public class CatalogTest {
     public void shouldListAvailableFruitsAlphabetically() {
 
         Catalog catalog = new Catalog();
-        catalog.setPriceOf(Fruit.ORANGE, 5.50);
-        catalog.setPriceOf(Fruit.BANANA, 6.00);
-        catalog.setPriceOf(Fruit.PEAR, 4.50);
+        catalog.setPriceof(Fruit.ORANGE, 5.50);
+        catalog.setPriceof(Fruit.BANANA, 6.00);
+        catalog.setPriceof(Fruit.PEAR, 4.50);
 
         List<Fruit> availableFruits = catalog.getAllFruitsAlphabeticalOrder();
         assertThat(availableFruits).containsExactly(Fruit.BANANA,Fruit.ORANGE,Fruit.PEAR);
@@ -38,10 +38,10 @@ public class CatalogTest {
     public void shouldGiveThePriceofFruit(){
 
         Catalog catalog = new Catalog();
-        catalog.setPriceOf(Fruit.ORANGE, 5.50);
-        catalog.setPriceOf(Fruit.BANANA, 6.00);
-        catalog.setPriceOf(Fruit.PEAR, 4.50);
+        catalog.setPriceof(Fruit.ORANGE, 5.50);
+        catalog.setPriceof(Fruit.BANANA, 6.00);
+        catalog.setPriceof(Fruit.PEAR, 4.50);
 
-        double priceofFruit = catalog.getPriceOf(Fruit.STRWBERRY);
+        double priceofFruit = catalog.getPriceof(Fruit.STRWBERRY);
     }
 }

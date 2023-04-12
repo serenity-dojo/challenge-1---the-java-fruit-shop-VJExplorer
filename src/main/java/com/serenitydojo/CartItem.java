@@ -16,11 +16,6 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public void addCartItem(CartItem item){
-        cartItems.add(item);
-    }
-
-
     public double getQuantity(){
         return quantity;
     }

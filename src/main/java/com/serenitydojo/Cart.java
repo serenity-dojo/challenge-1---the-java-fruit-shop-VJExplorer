@@ -31,13 +31,13 @@ public class Cart {
 
     public double getRunningTotal() {
         return items.stream()
-                .mapToDouble(item -> priceOfFruit(item))
+                .mapToDouble(item -> priceofFruit(item))
                 .sum();
 
     }
 
 
-    private double priceOfFruit(CartItem item) {
+    private double priceofFruit(CartItem item) {
         double totalPrice = 0;
         if (item.getQuantity() >= 5) {
             totalPrice = item.getQuantity() * catalog.getPriceof(item.getFruit()) * 0.9;
